@@ -33,7 +33,6 @@ services:
       - cardano-node
     volumes:
       - ./testnet-ipc:/ipc
-      - ./mount:/mount
     ports:
       - 8090:8090
     #restart: on-failure

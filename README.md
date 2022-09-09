@@ -8,12 +8,10 @@
 > INSTALL NOTE: If you want to install the docker-compose/config files to run the nodes with a quick command there is an `install.sh ` file included. (Ubuntu 22+ tested only)
 
 - To **install** the files run:
-  > > `. ./install && installCardanoTestnet`
+  > `. ./install && installCardanoTestnet`
 - To **run** the node:
-  > > `cardano-testnet`
+  > `cardano-testnet`
 - This will default to the "preview" network. To run the preprod network:
-  > > `cardano-testnet preprod`
-  > >
-  > > >
+  > `cardano-testnet preprod`
 - To **uninstall**:
-  > > `. ./install.sh && removeCardanoTestnet`
+  > `. ./install.sh && removeCardanoTestnet`
