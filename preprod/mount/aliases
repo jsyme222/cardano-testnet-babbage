@@ -1,0 +1,10 @@
+#!/bin/bash
+
+alias tip="cardano-cli query tip --testnet-magic $MAGIC"
+
+function getUtxo () {
+    cardano-cli query utxo --address $1 --testnet-magic $MAGIC
+}
+
+alias utxo="getUtxo"
+	

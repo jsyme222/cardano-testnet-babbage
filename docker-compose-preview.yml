@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  cardano-node:
+    image: inputoutput/cardano-node:latest
+    container_name: cardano-node-preview
+    environment:
+      - NETWORK=testnet
+      - MAGIC=2
+      - CARDANO_NODE_SOCKET_PATH=/ipc/node.socket
+      - ADDR=addr_test1qpc2xd5c9nerw70szmjnvfdh0r6f3qc9p6c6vmhswhm46f9v2d7p52vjq82netykl7yjvec34udmk5d4mjhv97j3ym5qdcdxm6
+    volumes:
+      - ./preview/preview-db:/data/db
+      - ./preview/mount:/mount
+      - ./preview/wallets:/wallets
+      - ./preview/tokens:/tokens
+      - ./testnet-ipc:/ipc
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+    entrypoint: /mount/entrypoint.sh
+
+  cardano-submit-api:
+    image: inputoutput/cardano-submit-api
+    container_name: cardano-submit-api
+    environment:
+      - NETWORK=testnet
+      - MAGIC=2
+      - config=/mount/preview/submit-api-config.json
+    depends_on:
+      - cardano-node
+    volumes:
+      - ./testnet-ipc:/ipc
+      - ./mount:/mount
+    ports:
+      - 8090:8090
+    #restart: on-failure
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
