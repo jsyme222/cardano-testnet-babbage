@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cardano-node run --config /mount/preprod-node-config.json --topology /mount/preprod-topology-config.json --database-path /data/db --socket-path /ipc/node.socket
+cardano-node run --config /mount/config.json --topology /mount/topology.json --database-path /data/db --socket-path /ipc/node.socket

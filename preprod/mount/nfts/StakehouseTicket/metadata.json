@@ -1,0 +1,12 @@
+{
+    "721": {
+        "866e5f517234ea5c26c30e14c85f7649aeb9bd8ec1462ba73367aa54": {
+          "Teste NFT": {
+            "description": "Testing minting policy",
+            "name": "Teste NFT",
+            "id": 1,
+            "image": ""
+          }
+        }
+    }
+}
